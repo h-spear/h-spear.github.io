@@ -22,13 +22,13 @@ order: 4
           <span class="font-medium"
             ><b>삼성 청년 소프트웨어 아카데미 10기(SSAFY 10th)</b></span
           >
-          <span><b>(`23.07.05 ~ )</b></span>
+          <span class="right-tag"><b>(`23.07.05 ~ )</b></span>
         </p>
         <ul>
           <li>
             <p class="content__element">
               <span>삼성 SW 역량테스트 Pro 취득</span>
-              <span class="font-small">(`23.08.05)</span>
+              <span class="font-small right-tag">(`23.08.05)</span>
             </p>
           </li>
           <li>
@@ -43,7 +43,7 @@ order: 4
                   / 대상<span class="font-small">(1등)</span> 수상</a
                 >
               </span>
-              <span class="font-small">(`23.08.31 ~ `23.09.17)</span>
+              <span class="font-small right-tag">(`23.08.31 ~ `23.09.17)</span>
             </p>
           </li>
           <li>
@@ -53,7 +53,7 @@ order: 4
                   >(13반 1등)</span
                 ></span
               >
-              <span class="font-small">(`23.07.05 ~ `23.11.24)</span>
+              <span class="font-small right-tag">(`23.07.05 ~ `23.11.24)</span>
             </p>
           </li>
         </ul>
@@ -63,13 +63,13 @@ order: 4
           <span class="font-medium"
             ><b>삼성SDS 동계 알고리즘 특강 Java반</b> 수료</span
           >
-          <span><b>(`23.01.30 ~ `23.02.10)</b></span>
+          <span class="right-tag"><b>(`23.01.30 ~ `23.02.10)</b></span>
         </p>
         <ul>
           <li>
             <p class="content__element">
               <span>삼성 SDS Pro 취득</span>
-              <span class="font-small">(`23.02.18)</span>
+              <span class="font-small right-tag">(`23.02.18)</span>
             </p>
           </li>
         </ul>
@@ -79,13 +79,13 @@ order: 4
           <span class="font-medium"
             ><b>서울시립대학교 컴퓨터과학부</b> 졸업</span
           >
-          <span><b>(`17.02.28 ~ `23.08.22)</b></span>
+          <span class="right-tag"><b>(`17.02.28 ~ `23.08.22)</b></span>
         </p>
       </li>
       <li>
         <p class="content__element">
           <span class="font-medium"><b>논산고등학교</b> 졸업</span>
-          <span><b>(`14.03.03 ~ `17.02.08)</b></span>
+          <span class="right-tag"><b>(`14.03.03 ~ `17.02.08)</b></span>
         </p>
       </li>
     </ul>
@@ -102,7 +102,7 @@ order: 4
     <h2 id="problem-solving">Problem Solving</h2>
     <ul>
       <li class="mb-18">
-        <p class="content__element">
+        <p class="content__element-certificates">
           <span class="font-medium">
             <a href="https://www.acmicpc.net/user/ki9014" target="_blank"
               >Baekjoon Online Judge</a
@@ -194,7 +194,7 @@ order: 4
             </p>
           </li>
           <li>
-            <p class="content__element">
+            <p class="content__element-certificates">
               <span>
                 <a
                   href="https://github.com/Hyunjoo-J/SSAFY_Study"
@@ -214,7 +214,7 @@ order: 4
     <h2 id="certificates">Certificates</h2>
     <ul>
       <li>
-        <p class="content__element">
+        <p class="content__element-certificates">
           <span class="font-medium"
             >HSAT Level 3 <span class="font-regular">(현대엔지비)</span></span
           >
@@ -222,7 +222,7 @@ order: 4
         </p>
       </li>
       <li>
-        <p class="content__element">
+        <p class="content__element-certificates">
           <span class="font-medium"
             >삼성 SW 역량테스트 Pro
             <span class="font-regular">(삼성전자)</span></span
@@ -231,7 +231,7 @@ order: 4
         </p>
       </li>
       <li>
-        <p class="content__element">
+        <p class="content__element-certificates">
           <span class="font-medium"
             >삼성 SDS Pro <span class="font-regular">(삼성SDS)</span></span
           >
@@ -239,7 +239,7 @@ order: 4
         </p>
       </li>
       <li>
-        <p class="content__element">
+        <p class="content__element-certificates">
           <span class="font-medium"
             >정보처리기사
             <span class="font-regular">(한국산업인력공단)</span></span
@@ -256,21 +256,23 @@ order: 4
     </h2>
     <a href="https://github.com/h-spear" target="_blank">
       <div class="github-card-container">
+        <div class="github-stat-card-container">
+          <img
+            class="bg-transparent"
+            src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=h-spear&theme=transparent"
+            alt="github-summary"
+          />
+          <img
+            class="bg-transparent"
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=h-spear&layout=compact&theme=transparent&hide_border=true"
+            alt="github-stats"
+          />
+        </div>
         <img
-          class="bg-transparent"
-          src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=h-spear&theme=transparent"
-          alt="github-summary"
-        />
-        <img
-          class="bg-transparent"
-          src="https://github-readme-stats.vercel.app/api/top-langs/?username=h-spear&layout=compact&theme=transparent&hide_border=true"
-          alt="github-stats"
-        />
-      </div>
-      <img
           class="bg-transparent" 
           src="https://ghchart.rshah.org/h-spear"
           alt="github-ghchart" />
+      </div>
     </a>
   </div>
 </div>
@@ -281,6 +283,13 @@ order: 4
   }
 
   .profile__content .content__element {
+    margin: 0 !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .profile__content .content__element-certificates {
     margin: 0 !important;
     display: flex;
     justify-content: space-between;
@@ -327,18 +336,47 @@ order: 4
 
   .profile__content .bg-transparent {
     background-color: transparent !important;
+    width: 100%;
   }
 
   .profile__content .github-card-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
+  
+  .profile__content .github-stat-card-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
 
   .profile__content a:hover {
     color: #ffa600;
     transition: 0.1s;
   }
+
+@media screen and (max-width: 568px) {
+  .profile__content .content__element {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .profile__content .right-tag {
+    margin-left: 10px;
+  }
+
+  .profile__content > div > ul {
+    margin: 10px 0 0 0px !important;
+  }
+
+  .profile__content .github-stat-card-container {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+}
 </style>
 
 <script>
