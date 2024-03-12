@@ -259,13 +259,18 @@ order: 4
         <img
           class="bg-transparent"
           src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=h-spear&theme=transparent"
+          alt="github-summary"
         />
         <img
           class="bg-transparent"
           src="https://github-readme-stats.vercel.app/api/top-langs/?username=h-spear&layout=compact&theme=transparent&hide_border=true"
+          alt="github-stats"
         />
       </div>
-      <img class="bg-transparent" src="https://ghchart.rshah.org/h-spear" />
+      <img
+          class="bg-transparent" 
+          src="https://ghchart.rshah.org/h-spear"
+          alt="github-ghchart" />
     </a>
   </div>
 </div>
