@@ -5,7 +5,7 @@ order: 4
 ---
 
 <div class="profile__content">
-  <div>My Profile</div>
+  <!-- <div>My Profile</div> -->
 
   <!-- <div>
     <h2 id="Skills">Skills</h2>
@@ -15,7 +15,7 @@ order: 4
   </div> -->
 
   <div>
-    <h2 id="education">Education</h2>
+    <h1 class="dynamic-title" id="education">Education</h1>
     <ul>
       <li class="mb-18">
         <p class="content__element">
@@ -92,14 +92,202 @@ order: 4
   </div>
 
   <div>
-    <h2 id="project">Project</h2>
+    <h1 class="dynamic-title" id="project">Project</h1>
     <ul>
-      Project Summary
+      <li class="mb-18">
+        <p class="content__element">
+          <span class="font-medium"><b>Secreto - 온라인 마니또 서비스</b></span>
+          <span class="right-tag"><b>(`24.01.08 ~ `24.02.16)</b></span>
+        </p>
+        <ul>
+          <li>
+            <p class="content__element">
+             <span>Java, Spring, JPA, Spring Data JPA, Vue.js, TypeScript, MySQL</span>
+            </p>
+          </li>
+          <li>
+            <p class="content__element">
+             <span>마니또 미션 인증/자랑 게시판, 회원 관리 페이지 구현, 반응형 웹</span>
+            </p>
+          </li>
+          <li>
+            <p class="content__element">
+              <span>팀 프로젝트(6인)</span>
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li class="mb-18">
+        <p class="content__element">
+          <span class="font-medium"><b>솔직이 - 거래 내역 기반 치매 예방 서비스</b></span>
+          <span class="right-tag"><b>(`23.08.31 ~ `23.09.17)</b></span>
+        </p>
+        <ul>
+          <li>
+            <p class="content__element">
+             <span>Java, Spring, JPA, Spring Data JPA, Thymeleaf, JavaScript, MariaDB</span>
+            </p>
+          </li>
+          <li>
+            <p class="content__element">
+             <span>아이디어 제시, 치매 예방 게임 구현, 거래 내역 기반 퀴즈 구현, 치매 진단 검사 구현</span>
+            </p>
+          </li>
+          <li>
+            <p class="content__element">
+              <div>
+                팀 프로젝트(4인)
+                &nbsp;/&nbsp;
+                <a href="https://github.com/SSAFYxShinhan/SolJiGi"
+                    target="_blank">Github</a>
+                &nbsp;/&nbsp;
+                <a href="https://youtu.be/rNPzuXeeRWc"
+                    target="_blank">시연영상</a>
+                &nbsp;/&nbsp;
+                <a href="https://www.ssafy.com/ksp/servlet/swp.board.controller.SwpBoardServlet?p_process=select-board-view&p_menu_cd=M0204&p_tabseq=226509&p_seq=60&p_pageno="
+                    target="_blank">수상후기(신한 해커톤 With SSAFY 1등)</a>
+              </div>
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li class="mb-18">
+        <p class="content__element">
+          <span class="font-medium"><b>예쁜피오피 - 손글씨 상품 쇼핑몰 홈페이지</b></span>
+          <span class="right-tag"><b>(`23.03.27 ~ `23.05.23)</b></span>
+        </p>
+        <ul>
+          <li>
+            <p class="content__element">
+             <span>Java, Spring, JPA, Spring Data JPA, QueryDSL, Thymeleaf, JavaScript, H2, MariaDB</span>
+            </p>
+          </li>
+          <li>
+            <p class="content__element">
+             <span>프로젝트 기획/설계, 쇼핑몰<span class="font-small">(상품, 장바구니, 리뷰, 찜, 마이페이지 등)</span> 모든 기능 구현 및 테스트, 데이터 크롤링</span>
+            </p>
+          </li>
+          <li>
+            <p class="content__element">
+              <div>
+                개인 프로젝트(1인)
+                &nbsp;/&nbsp;
+                <a href="https://github.com/h-spear/pretty-pop"
+                    target="_blank">Github</a>
+                &nbsp;/&nbsp;
+                <a href="https://port-0-pretty-pop-1msx2blg22vwx1.sel3.cloudtype.app/"
+                    target="_blank">홈페이지(Cloudtype)</a>
+              </div>
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li class="mb-18">
+        <p class="content__element">
+          <span class="font-medium"><b>Page Replacement Simulator - 운영체제 페이지 교체 정책 시뮬레이터</b></span>
+          <span class="right-tag"><b>(`22.11.15 ~ `22.11.18)</b></span>
+        </p>
+        <ul>
+          <li>
+            <p class="content__element">
+             <span>Java, OS, Design Pattern</span>
+            </p>
+          </li>
+          <li>
+            <p class="content__element">
+             <span>프로젝트 설계, 페이지 교체 정책<span class="font-small">(FIFO, LRU, LFU, MFU, Clock, Optimal)</span> 알고리즘 구현, 파일 입출력</span>
+            </p>
+          </li>
+          <li>
+            <p class="content__element">
+              <div>
+                개인 프로젝트(1인)
+                &nbsp;/&nbsp;
+                <a href="https://github.com/h-spear/page-replacement-simulator"
+                    target="_blank">Github</a>
+                &nbsp;/&nbsp;
+                <a href="https://youtu.be/bhc0smhrTc4"
+                    target="_blank">시연영상</a>
+              </div>
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li class="mb-18">
+        <p class="content__element">
+          <span class="font-medium"
+            ><b>SDA - 일상생활 데이터 분석 기반 시니어 케어 시스템</b></span
+          >
+          <span class="right-tag"><b>(`22.03.10 ~ `22.06.16)</b></span>
+        </p>
+        <ul>
+          <li>
+            <p class="content__element">
+             <span>Java, Android, Firebase, FCM, Tensorflow Lite,
+             <a href="https://developers.google.com/ml-kit/vision/pose-detection"
+                target="_blank">ML Kit</a>
+              </span>
+            </p>
+          </li>
+          <li>
+            <p class="content__element">
+             <span>시니어 앱/보호자 앱 총괄/개발, 1차 낙상 판단 알고리즘, Tensorflow Lite를 활용한 딥러닝 모델 이식</span>
+            </p>
+          </li>
+          <li>
+            <p class="content__element">
+              <div>
+                팀 프로젝트(4인)
+                &nbsp;/&nbsp;
+                <a href="https://github.com/h-spear/senior-danger-analysis"
+                    target="_blank">Github</a>
+                &nbsp;/&nbsp;
+                <a href="https://youtu.be/W3RGKqy59TE"
+                    target="_blank">시연영상</a>
+              </div>
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li class="mb-18">
+        <p class="content__element">
+          <span class="font-medium"><b>네트워크 그래프 기반 요리 레시피 분석 및 시각화</b></span>
+          <span class="right-tag"><b>(`21.09.09 ~ `21.12.08)</b></span>
+        </p>
+        <ul>
+          <li>
+            <p class="content__element">
+              <span>JavaScript, Python,
+                <a href="https://gephi.org/"
+                    target="_blank">Gephi</a>
+              </span>
+            </p>
+          </li>
+          <li>
+            <p class="content__element">
+             <span>데이터 크롤링, 레시피 그래프 Edge 연결 알고리즘, 그래프 시각화, 최종 발표</span>
+            </p>
+          </li>
+          <li>
+            <p class="content__element">
+              <div>
+                팀 프로젝트(3인)
+                &nbsp;/&nbsp;
+                <a href="https://github.com/h-spear/recipe-analysis-and-network-visualization/"
+                    target="_blank">Github</a>
+                &nbsp;/&nbsp;
+                <a href="https://h-spear.github.io/recipe-analysis-and-network-visualization/"
+                    target="_blank">홈페이지(Github Pages)</a>
+              </div>
+            </p>
+          </li>
+        </ul>
+      </li>
     </ul>
   </div>
 
   <div>
-    <h2 id="problem-solving">Problem Solving</h2>
+    <h1 class="dynamic-title" id="problem-solving">Problem Solving</h1>
     <ul>
       <li class="mb-18">
         <p class="content__element-certificates">
@@ -211,7 +399,7 @@ order: 4
   </div>
 
   <div>
-    <h2 id="certificates">Certificates</h2>
+    <h1 class="dynamic-title" id="certificates">Certificates</h1>
     <ul>
       <li>
         <p class="content__element-certificates">
@@ -251,9 +439,9 @@ order: 4
   </div>
 
   <div>
-    <h2 id="github">
+    <h1 class="dynamic-title" id="github">
       Github Stats
-    </h2>
+    </h1>
     <a href="https://github.com/h-spear" target="_blank">
       <div class="github-card-container">
         <div class="github-stat-card-container">
@@ -300,10 +488,8 @@ order: 4
     margin-top: 24px !important;
   }
 
-  .profile__content > div > h2 {
-    margin: 40px 0 10px 0 !important;
-    font-weight: 700;
-    font-size: 26px;
+  .profile__content .dynamic-title {
+    margin: 50px 0 10px 0 !important;
   }
 
   .profile__content > div > ul {
