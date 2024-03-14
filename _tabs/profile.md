@@ -406,7 +406,7 @@ order: 4
           <span class="font-medium"
             >HSAT Level 3 <span class="font-regular">(현대엔지비)</span></span
           >
-          <span>(`23.12.19)</span>
+          <span>(`23.12.27)</span>
         </p>
       </li>
       <li>
