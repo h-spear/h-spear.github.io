@@ -102,12 +102,12 @@ order: 4
         <ul>
           <li>
             <p class="content__element">
-             <span>Java, Spring, JPA, Spring Data JPA, Vue.js, TypeScript, MySQL</span>
+             <span>WebRTC, Java, Spring, JPA, Spring Data JPA, Vue.js, TypeScript, MySQL</span>
             </p>
           </li>
           <li>
             <p class="content__element">
-             <span>마니또 미션 인증/자랑 게시판, 회원 관리 페이지 구현, 반응형 웹</span>
+             <span>마니또 미션 인증/자랑, 게임 통계, 히스토리, 회원 관리 구현, 프론트엔드 반응형 웹</span>
             </p>
           </li>
           <li>
@@ -130,7 +130,7 @@ order: 4
           </li>
           <li>
             <p class="content__element">
-             <span>아이디어 제시, 치매 예방 게임 구현, 거래 내역 기반 퀴즈 구현, 치매 진단 검사 구현</span>
+             <span>아이디어 제시, 은행 Open API를 활용한 거래 내역 기반 퀴즈 구현, 치매 예방 게임 구현, 치매 진단 검사 구현</span>
             </p>
           </li>
           <li>
@@ -164,7 +164,7 @@ order: 4
           </li>
           <li>
             <p class="content__element">
-             <span>프로젝트 기획/설계, 쇼핑몰<span class="font-small">(상품, 장바구니, 리뷰, 찜, 마이페이지 등)</span> 모든 기능 구현 및 테스트, 데이터 크롤링</span>
+             <span>프로젝트 기획/설계/디자인, 쇼핑몰<span class="font-small">(상품, 장바구니, 리뷰, 찜, 마이페이지 등)</span> 모든 기능 구현 및 테스트</span>
             </p>
           </li>
           <li>
@@ -195,7 +195,7 @@ order: 4
           </li>
           <li>
             <p class="content__element">
-             <span>프로젝트 설계, 페이지 교체 정책<span class="font-small">(FIFO, LRU, LFU, MFU, Clock, Optimal)</span> 알고리즘 구현, 파일 입출력</span>
+             <span>프로젝트 설계 및 구현, 페이지 교체 정책<span class="font-small">(FIFO, LRU, LFU, MFU, Clock, Optimal)</span> 알고리즘 구현, 파일 입출력</span>
             </p>
           </li>
           <li>
@@ -231,7 +231,7 @@ order: 4
           </li>
           <li>
             <p class="content__element">
-             <span>시니어 앱/보호자 앱 총괄/개발, 1차 낙상 판단 알고리즘, Tensorflow Lite를 활용한 딥러닝 모델 이식</span>
+             <span>시니어 앱/보호자 앱 총괄/개발, 1차 낙상 판단 알고리즘 구현, Tensorflow Lite를 활용한 딥러닝 모델 이식</span>
             </p>
           </li>
           <li>
@@ -265,7 +265,7 @@ order: 4
           </li>
           <li>
             <p class="content__element">
-             <span>데이터 크롤링, 레시피 그래프 Edge 연결 알고리즘, 그래프 시각화, 최종 발표</span>
+             <span>레시피 그래프 Edge 연결 알고리즘, 그래프 시각화, 데이터 크롤링 및 데이터 정제, 최종 발표</span>
             </p>
           </li>
           <li>
