@@ -15,7 +15,7 @@ order: 4
   </div> -->
 
   <div>
-    <h1 class="dynamic-title" id="education">Education</h1>
+    <h1 class="content__title" id="education">Education</h1>
     <ul>
       <li class="mb-18">
         <p class="content__element">
@@ -92,7 +92,7 @@ order: 4
   </div>
 
   <div>
-    <h1 class="dynamic-title" id="project">Project</h1>
+    <h1 class="content__title" id="project">Project</h1>
     <ul>
       <li class="mb-18">
         <p class="content__element">
@@ -287,7 +287,7 @@ order: 4
   </div>
 
   <div>
-    <h1 class="dynamic-title" id="problem-solving">Problem Solving</h1>
+    <h1 class="content__title" id="problem-solving">Problem Solving</h1>
     <ul>
       <li class="mb-18">
         <p class="content__element-certificates">
@@ -399,7 +399,7 @@ order: 4
   </div>
 
   <div>
-    <h1 class="dynamic-title" id="certificates">Certificates</h1>
+    <h1 class="content__title" id="certificates">Certificates</h1>
     <ul>
       <li>
         <p class="content__element-certificates">
@@ -439,7 +439,7 @@ order: 4
   </div>
 
   <div>
-    <h1 class="dynamic-title" id="github">
+    <h1 class="content__title" id="github">
       Github Stats
     </h1>
     <a href="https://github.com/h-spear" target="_blank">
@@ -488,7 +488,7 @@ order: 4
     margin-top: 24px !important;
   }
 
-  .profile__content .dynamic-title {
+  .profile__content .content__title {
     margin: 50px 0 10px 0 !important;
   }
 
