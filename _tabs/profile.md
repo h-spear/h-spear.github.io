@@ -48,11 +48,9 @@ order: 4
           </li>
           <li>
             <p class="content__element">
-              <span
-                >1학기 코딩집중 과정 수료 / 성적우수<span class="font-small"
-                  >(13반 1등)</span
-                ></span
-              >
+              <span>1학기 코딩집중 과정 수료 / 성적우수
+                <span class="font-small">(13반 1등)</span>
+              </span>
               <span class="font-small right-tag">(`23.07.05 ~ `23.11.24)</span>
             </p>
           </li>
@@ -77,8 +75,7 @@ order: 4
       <li class="mb-18">
         <p class="content__element">
           <span class="font-medium"
-            ><b>서울시립대학교 컴퓨터과학부</b> 졸업</span
-          >
+            ><b>서울시립대학교 컴퓨터과학부</b> 졸업</span>
           <span class="right-tag"><b>(`17.02.28 ~ `23.08.22)</b></span>
         </p>
       </li>
@@ -102,7 +99,7 @@ order: 4
         <ul>
           <li>
             <p class="content__element">
-             <span>WebRTC, Java, Spring, JPA, Spring Data JPA, Vue.js, TypeScript, MySQL</span>
+             <span>WebRTC, Java, Spring, JPA, Spring Data JPA, Vue.js, TypeScript, Tailwind CSS, MySQL</span>
             </p>
           </li>
           <li>
@@ -125,7 +122,7 @@ order: 4
         <ul>
           <li>
             <p class="content__element">
-             <span>Java, Spring, JPA, Spring Data JPA, Thymeleaf, JavaScript, MariaDB</span>
+             <span>Java, Spring, JPA, Spring Data JPA, Thymeleaf, JavaScript, MySQL</span>
             </p>
           </li>
           <li>
@@ -159,7 +156,7 @@ order: 4
         <ul>
           <li>
             <p class="content__element">
-             <span>Java, Spring, JPA, Spring Data JPA, QueryDSL, Thymeleaf, JavaScript, H2, MariaDB</span>
+             <span>Java, Spring, JPA, Spring Data JPA, QueryDSL, Thymeleaf, Bootstrap, JavaScript, H2, MariaDB</span>
             </p>
           </li>
           <li>
