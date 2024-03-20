@@ -27,6 +27,14 @@ order: 4
         <ul>
           <li>
             <p class="content__element">
+              <span>1학기 코딩집중 과정 수료 / 성적우수
+                <span class="font-small">(13반 1등)</span>
+              </span>
+              <span class="font-small right-tag">(`23.07.05 ~ `23.11.24)</span>
+            </p>
+          </li>
+          <li>
+            <p class="content__element">
               <span>삼성 SW 역량테스트 Pro 취득</span>
               <span class="font-small right-tag">(`23.08.05)</span>
             </p>
@@ -48,10 +56,8 @@ order: 4
           </li>
           <li>
             <p class="content__element">
-              <span>1학기 코딩집중 과정 수료 / 성적우수
-                <span class="font-small">(13반 1등)</span>
-              </span>
-              <span class="font-small right-tag">(`23.07.05 ~ `23.11.24)</span>
+              <span>삼성전자 DA 사업부 연계 프로젝트 수행</span>
+              <span class="font-small right-tag">(`24.02.21 ~ `24.04.05)</span>
             </p>
           </li>
         </ul>
