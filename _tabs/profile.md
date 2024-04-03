@@ -105,7 +105,7 @@ order: 4
         <ul>
           <li>
             <p class="content__element">
-             <span>WebRTC, Java, Spring, JPA, Spring Data JPA, Vue.js, TypeScript, Tailwind CSS, MySQL</span>
+             <span>Java, Spring, JPA, Spring Data JPA, Vue.js, TypeScript, Tailwind CSS, MySQL</span>
             </p>
           </li>
           <li>
