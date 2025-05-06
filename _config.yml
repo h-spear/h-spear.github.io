@@ -223,3 +223,12 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+    
+comments:
+  provider: utterances
+  utterances:
+    repo: h-spear/h-spear.github.io
+    issue_term: pathname
+    label: "💬 Utterances"
+    theme: github-light
+    crossorigin: anonymous
