@@ -1,12 +1,26 @@
 <!-- The Top Bar -->
 
-<header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
+<header
+  id="topbar-wrapper"
+  class="flex-shrink-0"
+  aria-label="Top Bar"
+  style="flex-direction: column"
+>
   <div
     id="topbar"
     class="d-flex align-items-center justify-content-between px-lg-3 h-100 w-100"
   >
+    <button
+      type="button"
+      id="topbar-menu-trigger"
+      class="btn btn-link"
+      aria-label="Sidebar"
+    >
+      <i class="fas fa-bars fa-fw"></i>
+    </button>
+
     <div>
-      <a class="topbar-title" href="{{ '/' | relative_url }}"
+      <a class="topbar-blog-title" href="{{ '/' | relative_url }}"
         >{{ site.title }}</a
       >
     </div>
@@ -14,23 +28,16 @@
     <div class="topbar-items">
       <ul class="topbar-menu-container">
         {% for tab in site.tabs %}
-          <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
-            <a href="{{ tab.url | relative_url }}" class="nav-link">
-              <span>{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
-            </a>
-          </li>
-          <!-- .nav-item -->
+        <li class="nav-item{% if tab.url == page.url %} active{% endif %}">
+          <a href="{{ tab.url | relative_url }}" class="nav-link">
+            <span
+              >{{ site.data.locales[include.lang].tabs.[tab_name] | default:
+              tab.title | upcase }}</span
+            >
+          </a>
+        </li>
         {% endfor %}
       </ul>
-
-      <button
-        type="button"
-        id="sidebar-trigger"
-        class="btn btn-link"
-        aria-label="Sidebar"
-      >
-        <i class="fas fa-bars fa-fw"></i>
-      </button>
 
       <div id="topbar-title">
         {% if page.layout == 'home' %} {{- site.data.locales[include.lang].title
@@ -71,4 +78,16 @@
       </button>
     </div>
   </div>
+  <ul class="topbar-menu-container mobile">
+    {% for tab in site.tabs %}
+    <li class="nav-item{% if tab.url == page.url %} active{% endif %}">
+      <a href="{{ tab.url | relative_url }}" class="nav-link">
+        <span
+          >{{ site.data.locales[include.lang].tabs.[tab_name] | default:
+          tab.title | upcase }}</span
+        >
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
 </header>

@@ -12,21 +12,76 @@
   z-index: 1000;
   display: flex;
   justify-content: center;
-  height: 80px;
+  align-items: center;
   border-bottom: none;
   // background-color: var(--topbar-bg);
   transition: all 0.3s;
+  padding: 20px 0;
 
   @include bp.lt(bp.get(lg)) {
     @include mx.slide(top 0.2s ease);
 
     left: 0;
   }
+
+  ul.topbar-menu-container {
+    margin: 0;
+    gap: 40px;
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+
+    li.nav-item {
+      color: #777;
+      transition: all 0.3s;
+      padding: 0 6px;
+    }
+
+    li.nav-item:hover {
+      color: var(--dark-green-color);
+    }
+
+    li.nav-item.active {
+      color: var(--dark-green-color);
+      border-bottom: 2px solid var(--dark-green-color);
+    }
+
+    @include bp.lt(bp.get(lg)) {
+      display: none;
+    }
+
+    &.mobile {
+      margin-top: 20px;
+      padding: 0;
+      display: none;
+      list-style-type: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+
+      li.nav-item {
+      }
+    }
+  }
+
+  &.mobile-menu-opened {
+    border-bottom: 1px solid #eee;
+
+    ul.topbar-menu-container.mobile {
+      display: flex;
+
+      @media (min-width: 992px) {
+        display: none;
+      }
+    }
+  }
 }
 
 #topbar-wrapper.scrolled {
   border-bottom: 1px solid #eee;
-  height: 50px;
+  padding: 10px 0;
 }
 
 #topbar {
@@ -34,7 +89,7 @@
   max-width: 1400px;
   @extend %btn-color;
 
-  .topbar-title {
+  .topbar-blog-title {
     font-weight: 600;
     color: #333;
     font-size: 20px;
@@ -79,6 +134,21 @@
   @include bp.lt(bp.get(lg)) {
     max-width: 100%;
   }
+
+  .topbar-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+#topbar-menu-trigger {
+  display: none;
+
+  @include bp.lt(bp.get(lg)) {
+    display: block;
+  }
 }
 
 #topbar-title {
@@ -90,14 +160,6 @@
   text-align: center;
   width: 70%;
   word-break: keep-all;
-
-  @include bp.lt(bp.get(lg)) {
-    display: block;
-  }
-
-  @include bp.lg {
-    text-align: left;
-  }
 }
 
 #sidebar-trigger,
@@ -106,28 +168,5 @@
 
   @include bp.lt(bp.get(lg)) {
     display: block;
-  }
-}
-
-.topbar-items {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-
-  ul.topbar-menu-container {
-    display: flex;
-    margin: 0;
-    gap: 40px;
-    list-style-type: none;
-
-    li {
-      color: #777;
-      transition: all 0.3s;
-    }
-
-    li:hover {
-      color: var(--link-color);
-    }
   }
 }
