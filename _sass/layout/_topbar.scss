@@ -1,0 +1,133 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as mx;
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/placeholders';
+
+#topbar-wrapper {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  border-bottom: none;
+  // background-color: var(--topbar-bg);
+  transition: all 0.3s;
+
+  @include bp.lt(bp.get(lg)) {
+    @include mx.slide(top 0.2s ease);
+
+    left: 0;
+  }
+}
+
+#topbar-wrapper.scrolled {
+  border-bottom: 1px solid #eee;
+  height: 50px;
+}
+
+#topbar {
+  padding: 0 20px;
+  max-width: 1400px;
+  @extend %btn-color;
+
+  .topbar-title {
+    font-weight: 600;
+    color: #333;
+    font-size: 20px;
+  }
+
+  #breadcrumb {
+    font-size: 1rem;
+    color: var(--text-muted-color);
+    padding-left: 0.5rem;
+
+    a:hover {
+      @extend %link-hover;
+    }
+
+    span {
+      &:not(:last-child) {
+        &::after {
+          content: '›';
+          padding: 0 0.3rem;
+        }
+      }
+    }
+
+    @include bp.lt(bp.get(lg)) {
+      display: none;
+    }
+
+    @include bp.between(bp.get(lg), calc(#{bp.get(xl)} - 1px)) {
+      width: 65%;
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+      word-break: keep-all;
+      white-space: nowrap;
+    }
+  }
+
+  @include bp.lte(bp.get(md)) {
+    @include mx.max-w-100;
+  }
+
+  @include bp.lt(bp.get(lg)) {
+    max-width: 100%;
+  }
+}
+
+#topbar-title {
+  display: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: sans-serif;
+  color: var(--topbar-text-color);
+  text-align: center;
+  width: 70%;
+  word-break: keep-all;
+
+  @include bp.lt(bp.get(lg)) {
+    display: block;
+  }
+
+  @include bp.lg {
+    text-align: left;
+  }
+}
+
+#sidebar-trigger,
+#search-trigger {
+  display: none;
+
+  @include bp.lt(bp.get(lg)) {
+    display: block;
+  }
+}
+
+.topbar-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+
+  ul.topbar-menu-container {
+    display: flex;
+    margin: 0;
+    gap: 40px;
+    list-style-type: none;
+
+    li {
+      color: #777;
+      transition: all 0.3s;
+    }
+
+    li:hover {
+      color: var(--link-color);
+    }
+  }
+}
