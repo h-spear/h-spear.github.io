@@ -18,28 +18,123 @@ endif %}
   {% include head.html %}
 
   <body>
+    {% include sidebar.html lang=lang %}
+
     <div id="main-wrapper" class="d-flex justify-content-center">
-      <div
-        class="container d-flex flex-column px-xxl-5"
-        style="margin-top: 100px"
-      >
+      <div class="container" style="padding-top: 100px">
         {% include topbar.html lang=lang %}
 
-        <div class="row flex-grow-1">
-          <main
-            aria-label="Main Content"
-            class="col-12 col-lg-11 col-xl-9 px-md-4"
-          >
-            {% if layout.refactor or layout.layout == 'default' %} {% include
-            refactor-content.html content=content lang=lang %} {% else %} {{
-            content }} {% endif %}
-          </main>
+        <div class="d-flex flex-row">
+          <div class="left-profile-container" style="min-width: 240px">
+            <a href="{{ '/' | relative_url }}" id="avatar">
+              {%- if site.avatar != empty and site.avatar -%} {%- capture
+              avatar_url -%} {% include media-url.html src=site.avatar %} {%-
+              endcapture -%}
+              <img
+                src="{{- avatar_url -}}"
+                width="96"
+                height="96"
+                alt="avatar"
+                onerror="this.style.display='none'"
+              />
+              {%- endif -%}
+            </a>
+
+            <h2 class="panel-heading">KIM HYEON CHANG</h2>
+            <ul>
+              <li><i class="fa-solid fa-building"></i>Hyundai-Autoever</li>
+              <li style="display: flex">
+                <i
+                  class="fa-solid fa-laptop-code"
+                  style="margin-top: 0.5px"
+                ></i>
+                <p
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    line-height: 18px;
+                  "
+                >
+                  <span>Backend Developer / </span>
+                  <span>Process Engineer</span>
+                </p>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a
+                  href="mailto:gusckd96@naver.com"
+                  style="text-decoration: none"
+                >
+                  <i class="fas fa-envelope"></i>E-mail
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/h-spear"
+                  target="_blank"
+                  style="text-decoration: none"
+                >
+                  <i class="fab fa-github"></i>GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.acmicpc.net/user/ki9014"
+                  target="_blank"
+                  style="text-decoration: none"
+                >
+                  <i class="fa-solid fa-code"></i>Baekjoon
+                </a>
+                /
+                <a
+                  href="https://solved.ac/profile/ki9014"
+                  target="_blank"
+                  style="text-decoration: none"
+                >
+                  Solved.ac
+                </a>
+              </li>
+            </ul>
+            <ul style="margin-top: 30px">
+              <li>
+                <a
+                  href="https://chromewebstore.google.com/detail/algo-plus/egomkekembecbmlmmoflfdaobgkliiid"
+                  target="_blank"
+                  style="text-decoration: none"
+                >
+                  <i class="fa-brands fa-chrome"></i>Algo Plus
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="d-flex flex-column" style="padding: 0 20px; width: 100%">
+            <main
+              id="default-page-main-content"
+              aria-label="Main Content"
+              style="width: 100%; min-height: 100vh"
+            >
+              {% if layout.refactor or layout.layout == 'default' %} {% include
+              refactor-content.html content=content lang=lang %} {% else %} {{
+              content }} {% endif %}
+            </main>
+
+            <!-- tail -->
+            <div id="tail-wrapper" style="padding: 0 20px; width: 100%">
+              {% for _include in layout.tail_includes %} {% assign _include_path
+              = _include | append: '.html' %} {% include {{ _include_path }}
+              lang=lang %} {% endfor %} {% include_cached footer.html lang=lang
+              %}
+            </div>
+          </div>
 
           <!-- panel -->
           <aside
             aria-label="Panel"
             id="panel-wrapper"
-            class="col-xl-3 ps-2 text-muted"
+            class="ps-2 text-muted"
+            style="min-width: 240px"
           >
             <div class="access">
               {% include_cached update-list.html lang=lang %} {% include_cached
@@ -51,17 +146,6 @@ endif %}
             lang=lang %} {% endfor %}
           </aside>
         </div>
-
-        <div class="row">
-          <!-- tail -->
-          <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
-            {% for _include in layout.tail_includes %} {% assign _include_path =
-            _include | append: '.html' %} {% include {{ _include_path }}
-            lang=lang %} {% endfor %} {% include_cached footer.html lang=lang %}
-          </div>
-        </div>
-
-        {% include_cached search-results.html lang=lang %}
       </div>
 
       <aside aria-label="Scroll to Top">
@@ -75,7 +159,7 @@ endif %}
       </aside>
     </div>
 
-    <div id="mask" class="d-none position-fixed w-100 h-100 z-1"></div>
+    <div id="mask" class="position-fixed w-100 h-100 z-1 d-none"></div>
 
     {% if site.pwa.enabled %} {% include_cached notification.html lang=lang %}
     {% endif %}
@@ -84,6 +168,26 @@ endif %}
 
     {% for _include in layout.script_includes %} {% assign _include_path =
     _include | append: '.html' %} {% include {{ _include_path }} %} {% endfor %}
-    {% include_cached search-loader.html lang=lang %}
+
+    <div id="search-box" class="invisible">
+      <div class="search-container">
+        <div style="height: 30px; width: 100%">
+          <search id="search">
+            <i class="fas fa-search fa-fw pe-3"></i>
+            <input
+              id="search-input"
+              type="search"
+              aria-label="search"
+              autocomplete="off"
+              placeholder="Search..."
+            />
+          </search>
+        </div>
+        <div style="width: 100%; height: 1px; background-color: #eee"></div>
+        {% include_cached search-results.html lang=lang %}
+      </div>
+
+      {% include_cached search-loader.html lang=lang %}
+    </div>
   </body>
 </html>

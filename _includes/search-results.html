@@ -1,10 +1,13 @@
 <!-- The Search results -->
 
-<div id="search-result-wrapper" class="d-flex justify-content-center d-none">
-  <div class="col-11 content">
-    <div id="search-hints">
+<div id="search-result-wrapper" class="d-none">
+  <div class="content" style="min-height: 150px">
+    <div id="search-hints" class="d-none">
       {% include_cached trending-tags.html lang=include.lang %}
     </div>
-    <div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div>
+    <div
+      id="search-results"
+      class="d-flex flex-wrap justify-content-center text-muted mt-3"
+    ></div>
   </div>
 </div>

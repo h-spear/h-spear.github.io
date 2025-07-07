@@ -89,6 +89,51 @@
   max-width: 1400px;
   @extend %btn-color;
 
+  #search-trigger-button {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border: 1px solid #eee;
+    border-radius: 50px;
+    width: 200px;
+    color: #ccc;
+    padding: 4px 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    @include bp.lt(bp.get(lg)) {
+      justify-content: center;
+      padding: 10px;
+      width: 30px;
+      height: 30px;
+      border: none;
+      color: #999;
+      align-items: center;
+
+      i {
+        padding: 0 !important;
+      }
+    }
+
+    span {
+      color: #888;
+      transition: all 0.3s;
+
+      @include bp.lt(bp.get(lg)) {
+        display: none;
+      }
+    }
+
+    &:hover {
+      color: #555;
+      border-color: #777;
+
+      span {
+        color: #333;
+      }
+    }
+  }
+
   .topbar-blog-title {
     font-weight: 600;
     color: #333;
@@ -169,4 +214,8 @@
   @include bp.lt(bp.get(lg)) {
     display: block;
   }
+}
+
+#search {
+  cursor: pointer;
 }
