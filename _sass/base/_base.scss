@@ -415,7 +415,7 @@ mjx-container {
   position: relative;
 
   .left-profile-container {
-    padding-left: 40px;
+    padding-left: 20px;
     margin: 48px 0;
 
     .panel-heading {
@@ -482,6 +482,7 @@ mjx-container {
     min-height: 100vh;
     margin-left: 0 !important;
     margin-right: 0 !important;
+    max-width: 1400px !important;
 
     // @include bp.lte(bp.get(md)) {
     //   @include mx.max-w-100;
