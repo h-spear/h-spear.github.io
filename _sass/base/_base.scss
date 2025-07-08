@@ -412,6 +412,8 @@ mjx-container {
 }
 
 #main-wrapper {
+  position: relative;
+
   .left-profile-container {
     padding-left: 40px;
     margin: 48px 0;
@@ -462,9 +464,7 @@ mjx-container {
     }
   }
 
-  position: relative;
-
-  @include mx.pl-pr(0);
+  //   @include mx.pl-pr(0);
 
   @include bp.lt(bp.get(lg)) {
     @include mx.slide;
