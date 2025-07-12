@@ -12,9 +12,14 @@ thumbnail_description: 실전 코딩 테스트 환경을 제공하는 크롬 확
 참고로 **`Algo Plus`**는 크롬 확장 프로그램(Chrome Extension)으로, 현재 크롬 웹 스토어에서 누구나 다운로드하여 사용할 수 있습니다.  
 사용자는 대략 200명 정도입니다. (2025.06.29 기준)  
 
+> 프로그램 설치, 리포지토리 정보 및 데모 영상은 아래 링크를 참고해 주세요.
+-   <img src="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" width="20" height="20"/> [Github Repository](https://github.com/algo-plus)
+-   <img src="https://www.google.com/images/icons/product/chrome_web_store-256.png" width="20" height="20"/> [Chrome 웹 스토어](https://chromewebstore.google.com/detail/algo-plus/egomkekembecbmlmmoflfdaobgkliiid)
+-   <img src="https://www.youtube.com/s/desktop/3637873e/img/logos/favicon_96x96.png" width="20" height="20"/> [Demo](https://youtu.be/8h0NrgmRRuY?feature=shared)
+
 <br/>
 
-### **목차**
+## **목차**
 - 프로젝트 기획 배경
   - 주제 선정
   - 오답 노트 기능
