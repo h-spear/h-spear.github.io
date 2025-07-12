@@ -20,7 +20,8 @@
     content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
   />
 
-  {%- capture seo_tags -%} {% seo title=false %} {%- endcapture -%}
+  {%- capture seo_tags -%} {% seo title=false %} {%- endcapture -%} {% if
+  page.use_math %} {% include mathjax_support.html %} {% endif %}
 
   <!-- Setup Open Graph image -->
 
