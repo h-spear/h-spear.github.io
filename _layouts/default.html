@@ -25,7 +25,10 @@ endif %}
         {% include topbar.html lang=lang %}
 
         <div class="d-flex flex-row">
-          <div class="left-profile-container" style="min-width: 220px">
+          <div
+            class="left-profile-container"
+            style="min-width: 220px; max-width: 240px"
+          >
             <a href="{{ '/' | relative_url }}" id="avatar">
               {%- if site.avatar != empty and site.avatar -%} {%- capture
               avatar_url -%} {% include media-url.html src=site.avatar %} {%-
@@ -134,7 +137,7 @@ endif %}
             aria-label="Panel"
             id="panel-wrapper"
             class="ps-2 text-muted"
-            style="min-width: 240px"
+            style="min-width: 240px; max-width: 280px"
           >
             <div class="access">
               {% include_cached update-list.html lang=lang %} {% include_cached
