@@ -178,4 +178,4 @@ def validate_request(event):
 
 **관련 게시글**
 
-- [Algo Plus: AWS Lambda 함수 개선을 통한 개발 편의성 향상](/h-spear/posts/algoplus-secret-key/)
+- [Algo Plus: AWS Lambda 함수 개선을 통한 개발 편의성 향상](/posts/algoplus-secret-key/)
