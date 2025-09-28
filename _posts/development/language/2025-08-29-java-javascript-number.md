@@ -1,7 +1,7 @@
 ---
 title: "JavaScript Number vs. Java Long: JSON 통신 중 큰 숫자 변형 문제"
 date: 2025-08-29 20:00:00 +0900
-categories: [Development, Notes]
+categories: [Development, JavaScript]
 tags: [Java, JavaScript]
 image: /assets/img/post/java-javascript-number/thumbnail.png
 thumbnail_description: JavaScript와 Java의 숫자 표현 방식의 차이로 경험한 문제를 공유하고, JavaScript Number의 한계와 해결책에 대해 공유합니다.
