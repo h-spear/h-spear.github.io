@@ -199,6 +199,7 @@ public interface RequestBodyAdvice {
 필드 중에 `@InjectPathVariable` 애노테이션이 붙은 필드가 하나라도 있으면 `true`를 반환하도록 구현했습니다.
 ```java
 @RestControllerAdvice
+@RequiredArgsConstructor
 public class PathVariableInjectionAdvice implements RequestBodyAdvice {
 
 	@Override
@@ -219,6 +220,7 @@ public class PathVariableInjectionAdvice implements RequestBodyAdvice {
 객체로 만들어지기 전에 전처리할 부분은 없기 때문에 해당 메서드에서는 메시지(`inputMessage`)를 그대로 반환하도록 했습니다.
 ```java
 @RestControllerAdvice
+@RequiredArgsConstructor
 public class PathVariableInjectionAdvice implements RequestBodyAdvice {
 
     // ...생략
@@ -237,7 +239,10 @@ public class PathVariableInjectionAdvice implements RequestBodyAdvice {
 `PathVariableInjectionAdvice`의 핵심이 되는 부분입니다.  
 ```java
 @RestControllerAdvice
+@RequiredArgsConstructor
 public class PathVariableInjectionAdvice implements RequestBodyAdvice {
+
+	private final ConversionService conversionService;
 
     // ...생략
 
@@ -285,35 +290,10 @@ public class PathVariableInjectionAdvice implements RequestBodyAdvice {
 			return;
 		}
 
-		Object value = convertToFieldType(name, pathVariables.get(name), field.getType());
+		Object value = conversionService.convert(pathVariables.get(name), field.getType());
 
 		ReflectionUtils.makeAccessible(field);
 		ReflectionUtils.setField(field, body, value);
-	}
-
-    /**
-     * 문자열로 들어온 변수 값을 필드 타입에 맞게 형변환
-     * 만약 형변환에 실패하는 경우 예외를 던짐
-     */
-	private Object convertToFieldType(String name, String value, Class<?> targetType) {
-		try {
-			if (Long.class.isAssignableFrom(targetType) || targetType == long.class) {
-				return Long.parseLong(value);
-			} else if (Integer.class.isAssignableFrom(targetType) || targetType == int.class) {
-				return Integer.parseInt(value);
-			} else if (Boolean.class.isAssignableFrom(targetType) || targetType == boolean.class) {
-				return Boolean.parseBoolean(value);
-			} else if (Double.class.isAssignableFrom(targetType) || targetType == double.class) {
-				return Double.parseDouble(value);
-			} else if (Float.class.isAssignableFrom(targetType) || targetType == float.class) {
-				return Float.parseFloat(value);
-			} else {
-				return value;
-			}
-		} catch (NumberFormatException ex) {
-			throw new IllegalArgumentException(
-				String.format("Cannot convert path variable '%s' value '%s' to type %s.", name, value, targetType), ex);
-		}
 	}
 
     /**
@@ -341,6 +321,7 @@ public class PathVariableInjectionAdvice implements RequestBodyAdvice {
 요청의 본문이 비어있을 때도 처리할 부분이 없기 때문에 본문을 그대로 반환했습니다.
 ```java
 @RestControllerAdvice
+@RequiredArgsConstructor
 public class PathVariableInjectionAdvice implements RequestBodyAdvice {
 
     // ...생략
