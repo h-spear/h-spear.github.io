@@ -24,7 +24,7 @@ endif %}
       <div class="container" style="padding-top: 100px">
         {% include topbar.html lang=lang %}
 
-        <div class="d-flex flex-row">
+        <div class="d-flex flex-row" style="justify-content: center">
           <div
             class="left-profile-container"
             style="min-width: 220px; max-width: 240px"
@@ -112,7 +112,10 @@ endif %}
             </ul>
           </div>
 
-          <div class="d-flex flex-column" style="padding: 0 20px; width: 100%">
+          <div
+            class="d-flex flex-column"
+            style="padding: 0 20px; width: 100%; max-width: 880px"
+          >
             <main
               id="default-page-main-content"
               aria-label="Main Content"
