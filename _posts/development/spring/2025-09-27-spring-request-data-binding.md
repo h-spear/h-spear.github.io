@@ -197,142 +197,107 @@ public interface RequestBodyAdvice {
 
 그러기 위해서 `supports()` 메서드는 컨트롤러 메서드에 선언된 객체의 필드들을 순회하면서,  
 필드 중에 `@InjectPathVariable` 애노테이션이 붙은 필드가 하나라도 있으면 `true`를 반환하도록 구현했습니다.
+
 ```java
-@RestControllerAdvice
-@RequiredArgsConstructor
-public class PathVariableInjectionAdvice implements RequestBodyAdvice {
-
-	@Override
-	public boolean supports(MethodParameter methodParameter, Type targetType,
-		Class<? extends HttpMessageConverter<?>> converterType) {
-    
-		Class<?> clazz = methodParameter.getParameterType();
-		return Arrays.stream(clazz.getDeclaredFields())
-			.anyMatch(field -> field.isAnnotationPresent(InjectPathVariable.class));
-	}
-
-    // ...생략
-}
-```
-
-#### **beforeBodyRead() 메서드 구현**
-요청 본문이 Java 객체로 변환되기 전 전처리 작업을 수행하는 단계입니다.  
-객체로 만들어지기 전에 전처리할 부분은 없기 때문에 해당 메서드에서는 메시지(`inputMessage`)를 그대로 반환하도록 했습니다.
-```java
-@RestControllerAdvice
-@RequiredArgsConstructor
-public class PathVariableInjectionAdvice implements RequestBodyAdvice {
-
-    // ...생략
-
-	@Override
-	public HttpInputMessage beforeBodyRead(HttpInputMessage inputMessage, MethodParameter parameter,
-    Type targetType, Class<? extends HttpMessageConverter<?>> converterType) throws IOException {
-		return inputMessage;
-	}
-
-    // ...생략
+@Override
+public boolean supports(MethodParameter methodParameter, Type targetType,
+	Class<? extends HttpMessageConverter<?>> converterType) {
+	
+	Class<?> clazz = methodParameter.getParameterType();
+	return Arrays.stream(clazz.getDeclaredFields())
+		.anyMatch(field -> field.isAnnotationPresent(InjectPathVariable.class));
 }
 ```
 
 #### **afterBodyRead() 메서드 구현**
 `PathVariableInjectionAdvice`의 핵심이 되는 부분입니다.  
 ```java
-@RestControllerAdvice
-@RequiredArgsConstructor
-public class PathVariableInjectionAdvice implements RequestBodyAdvice {
+private final ConversionService conversionService;
 
-	private final ConversionService conversionService;
+@Override
+public Object afterBodyRead(Object body, HttpInputMessage inputMessage, MethodParameter parameter,
+	Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
 
-    // ...생략
+	HttpServletRequest httpServletRequest = getHttpServletRequest();
+	Map<String, String> pathVariables = getPathVariables(httpServletRequest);
+	injectPathVariables(body, pathVariables);
 
-	@Override
-	public Object afterBodyRead(Object body, HttpInputMessage inputMessage, MethodParameter parameter,
-    Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
+	return body;
+}
 
-		HttpServletRequest httpServletRequest = getHttpServletRequest();
-		Map<String, String> pathVariables = getPathVariables(httpServletRequest);
-		injectPathVariables(body, pathVariables);
+/**
+ * 객체(target) 내의 필드를 순회하며, PathVariable에 해당하는 값을 주입
+ */
+private void injectPathVariables(Object target, Map<String, String> pathVariables) {
+	if (target == null)
+		return;
 
-		return body;
-	}
+	Arrays.stream(target.getClass().getDeclaredFields())
+		.filter(field -> field.isAnnotationPresent(InjectPathVariable.class))
+		.forEach(field -> injectPathVariable(target, field, pathVariables));
+}
 
-    /**
-     * 객체(target) 내의 필드를 순회하며, PathVariable에 해당하는 값을 주입
-     */
-	private void injectPathVariables(Object target, Map<String, String> pathVariables) {
-		if (target == null)
-			return;
+/**
+ * 핵심 로직
+ * 1. name 속성으로 주입할 변수 이름을 확인
+ *    속성 값이 지정되지 않았다면 필드명을 기본 name으로 사용
+ * 2. PathVariable 변수 중에 name에 해당하는 값이 없고, required가 true라면 예외 발생
+ * 3. PathVariable 변수 타입 체크 및 변환
+ * 4. 리플렉션으로 필드에 값 주입
+ */
+private void injectPathVariable(Object body, Field field, Map<String, String> pathVariables) {
+	InjectPathVariable annotation = field.getAnnotation(InjectPathVariable.class);
 
-		Arrays.stream(target.getClass().getDeclaredFields())
-			.filter(field -> field.isAnnotationPresent(InjectPathVariable.class))
-			.forEach(field -> injectPathVariable(target, field, pathVariables));
-	}
+	String name = annotation.name().isEmpty() ? field.getName() : annotation.name();
+	boolean required = annotation.required();
 
-    /**
-     * 핵심 로직
-     * 1. name 속성으로 주입할 변수 이름을 확인
-     *    속성 값이 지정되지 않았다면 필드명을 기본 name으로 사용
-     * 2. PathVariable 변수 중에 name에 해당하는 값이 없고, required가 true라면 예외 발생
-     * 3. PathVariable 변수 타입 체크 및 변환
-     * 4. 리플렉션으로 필드에 값 주입
-     */
-	private void injectPathVariable(Object body, Field field, Map<String, String> pathVariables) {
-		InjectPathVariable annotation = field.getAnnotation(InjectPathVariable.class);
-
-		String name = annotation.name().isEmpty() ? field.getName() : annotation.name();
-		boolean required = annotation.required();
-
-		if (!pathVariables.containsKey(name)) {
-			if (required) {
-				throw new IllegalArgumentException(String.format("Path variable '%s' is required.", name));
-			}
-			return;
+	if (!pathVariables.containsKey(name)) {
+		if (required) {
+			throw new IllegalArgumentException(String.format("Path variable '%s' is required.", name));
 		}
-
-		Object value = conversionService.convert(pathVariables.get(name), field.getType());
-
-		ReflectionUtils.makeAccessible(field);
-		ReflectionUtils.setField(field, body, value);
+		return;
 	}
 
-    /**
-     * afterBodyRead() 메서드는 HttpServletRequest가 제공되지 않으므로,
-     * RequestContextHolder를 활용해 현재 스레드의 HTTP 요청 객체를 반환
-     */
-	private HttpServletRequest getHttpServletRequest() {
-		RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
-		return ((ServletRequestAttributes) requestAttributes).getRequest();
-	}
+	Object value = conversionService.convert(pathVariables.get(name), field.getType());
 
-    /**
-     * HttpServletRequest에 저장된 URL 경로 변수의 key-value 맵을 추출하여 반환
-     */
-	@SuppressWarnings("unchecked")
-	private Map<String,String> getPathVariables(HttpServletRequest httpServletRequest) {
-		return (Map<String, String>) httpServletRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
-	}
-  
-    // ...생략
+	ReflectionUtils.makeAccessible(field);
+	ReflectionUtils.setField(field, body, value);
+}
+
+/**
+ * afterBodyRead() 메서드는 HttpServletRequest가 제공되지 않으므로,
+ * RequestContextHolder를 활용해 현재 스레드의 HTTP 요청 객체를 반환
+ */
+private HttpServletRequest getHttpServletRequest() {
+	RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
+	return ((ServletRequestAttributes) requestAttributes).getRequest();
+}
+
+/**
+ * HttpServletRequest에 저장된 URL 경로 변수의 key-value 맵을 추출하여 반환
+ */
+@SuppressWarnings("unchecked")
+private Map<String,String> getPathVariables(HttpServletRequest httpServletRequest) {
+	return (Map<String, String>) httpServletRequest.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
 }
 ```
 
-#### **handleEmptyBody() 메서드 구현**
-요청의 본문이 비어있을 때도 처리할 부분이 없기 때문에 본문을 그대로 반환했습니다.
+#### **beforeBodyRead(), handleEmptyBody() 메서드 구현**
+객체가 만들어지기 전과 요청의 본문이 비어있을 때에는 따로 처리할 부분이 없기 때문에 그대로 반환되도록 하면 됩니다.
+
 ```java
-@RestControllerAdvice
-@RequiredArgsConstructor
-public class PathVariableInjectionAdvice implements RequestBodyAdvice {
+@Override
+public HttpInputMessage beforeBodyRead(HttpInputMessage inputMessage, MethodParameter parameter,
+	Type targetType, Class<? extends HttpMessageConverter<?>> converterType) throws IOException {
+	return inputMessage;
+}
 
-    // ...생략
-
-	@Override
-	public Object handleEmptyBody(Object body, HttpInputMessage inputMessage, 
-    MethodParameter parameter, Type targetType,
-    Class<? extends HttpMessageConverter<?>> converterType) {
-      
-		return body;
-	}
+@Override
+public Object handleEmptyBody(Object body, HttpInputMessage inputMessage, 
+	MethodParameter parameter, Type targetType,
+	Class<? extends HttpMessageConverter<?>> converterType) {
+		
+	return body;
 }
 ```
 
