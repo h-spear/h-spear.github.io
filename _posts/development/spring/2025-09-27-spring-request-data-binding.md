@@ -380,4 +380,4 @@ JUnit으로 컨트롤러 테스트 코드도 작성해서 실행해 보았습니
 
 
 > 이번 포스팅에서 작성한 코드는 여기에서 확인할 수 있습니다.
--   <img src="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" width="20" height="20"/> [[Github Repository] spring-request-data-binding](https://github.com/h-spear/spring-request-data-binding){:target='_blank'}
+-   <img src="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" width="20" height="20"/> [[Github Repository] h-spear/spring-request-data-binding](https://github.com/h-spear/spring-request-data-binding){:target='_blank'}
