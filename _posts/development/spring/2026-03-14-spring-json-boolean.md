@@ -7,7 +7,7 @@ image: /assets/img/post/spring/jackson-boolean/thumbnail.png
 thumbnail_description: Spring API 응답에서 boolean 필드명을 isXXX로 형태로 작성해도, 실제로 API 응답이 반환될 때는 XXX 형태로 바뀌는 원인과 해결 방법을 정리합니다.
 ---
 
-회사에서 대시보드 기능을 개발하며 API를 연동하던 중, 백엔드 개발자분과 API 명세를 협의할 때 boolean 필드는 `isPinned`, `isVisible`와 같이 `isXXX` 형태로 사용하기로 했습니다.  
+회사에서 대시보드 기능을 개발하며 API를 연동하던 중, API 명세를 협의할 때 boolean 필드는 `isPinned`, `isVisible`와 같이 `isXXX` 형태로 사용하기로 했습니다.  
 그런데 막상 API를 연동해보니 응답 JSON에서 `isPinned`가 아닌 `pinned`라는 이름으로 데이터가 내려오고 있었습니다.  
 백엔드 코드를 확인해보니 DTO는 분명 `isPinned`로 선언되어 있었고, 명세와 다르게 동작하고 있었습니다.  
 boolean 필드에서만 이런 현상이 발생하는 원인을 찾아보게 되었고, 이 글은 그 원인과 해결 과정을 정리한 내용입니다.
