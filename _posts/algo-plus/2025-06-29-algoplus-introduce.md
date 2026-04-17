@@ -14,7 +14,7 @@ thumbnail_description: 실전 코딩 테스트 환경을 제공하는 크롬 확
 
 > 프로그램 설치, 리포지토리 정보 및 데모 영상은 아래 링크를 참고해 주세요.
 -   <img src="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" width="20" height="20"/> [Github Repository](https://github.com/algo-plus){:target='_blank'}
--   <img src="https://www.google.com/images/icons/product/chrome_web_store-256.png" width="20" height="20"/> [Chrome 웹 스토어](https://chromewebstore.google.com/detail/algo-plus/egomkekembecbmlmmoflfdaobgkliiid){:target='_blank'}
+-   <img src="https://www.google.com/images/icons/product/chrome_web_store-256.png" width="20" height="20"/> Chrome 웹 스토어(서비스 종료)
 -   <img src="https://www.youtube.com/s/desktop/3637873e/img/logos/favicon_96x96.png" width="20" height="20"/> [Demo](https://youtu.be/8h0NrgmRRuY?feature=shared){:target='_blank'}
 
 <br/>
@@ -179,3 +179,4 @@ def validate_request(event):
 **관련 게시글**
 
 - [Algo Plus: AWS Lambda 함수 개선을 통한 개발 편의성 향상](/posts/algoplus-secret-key/)
+- [Algo Plus: 운영 모니터링 대시보드 개발과 서비스 종료](/posts/algoplus-dashboard/)
