@@ -2,7 +2,7 @@
 title: "Algo Plus: 운영 모니터링 대시보드 개발과 서비스 종료"
 date: 2026-04-17 20:00:00 +0900
 categories: [Project, Algo Plus]
-tags: [Algo Plus, AWS Lambda, React, Firebase, TypeScript, 서비스 종료]
+tags: [Algo Plus, AWS Lambda, React, Firebase, Dashboard]
 image: /assets/img/post/algo-plus/logo-icon.png
 thumbnail_description: Algo Plus 운영을 위해 직접 구축한 모니터링 대시보드와 데이터를 기반으로 서비스 종료를 결정하게 된 과정을 공유합니다.
 ---
