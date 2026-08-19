@@ -3,6 +3,7 @@ title: "[Java] HashMap에서 String 키가 Long 키보다 메모리를 더 쓰�
 date: 2026-08-19 20:00:00 +0900
 categories: [Language, Java]
 tags: [Java, HashMap, String, Long, Memory]
+image: /assets/img/post/java-hashmap/hash-and-key.png
 thumbnail_description: HashMap 내부 구조와 String·Long 키의 객체 구조를 살펴보고, JOL 측정을 통해 키 타입에 따른 메모리 사용량의 차이를 분석합니다.
 use_math: true
 ---
