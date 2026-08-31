@@ -1,7 +1,7 @@
 ---
 title: "Spring API 응답에서 boolean 필드의 is 키워드가 사라지는 이유"
 date: 2026-03-14 20:00:00 +0900
-categories: [Development, Spring]
+categories: [Development, Backend]
 tags: [Spring, Java, Jackson, Boolean, DTO]
 image: /assets/img/post/spring/jackson-boolean/thumbnail.png
 thumbnail_description: Spring API 응답에서 boolean 필드명을 isXXX로 형태로 작성해도, 실제로 API 응답이 반환될 때는 XXX 형태로 바뀌는 원인과 해결 방법을 정리합니다.

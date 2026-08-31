@@ -1,7 +1,7 @@
 ---
 title: "스프링 @RequestBody에 자동으로 @PathVariable 주입하기"
 date: 2025-09-27 20:00:00 +0900
-categories: [Development, Spring]
+categories: [Development, Backend]
 tags: [Spring, Spring MVC]
 image: /assets/img/post/spring/icon.png
 thumbnail_description: 커스텀 애노테이션 @InjectPathVariable을 개발하고, 이를 활용하여 컨트롤러 메서드를 깔끔하게 작성하는 방법을 공유합니다.
